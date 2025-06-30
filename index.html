@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Forgive Me Aashu 💌</title>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Open+Sans&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      padding: 20px;
+      padding: 0;
       background: linear-gradient(to bottom right, #1a001a, #3d0066);
-      font-family: 'Open Sans', sans-serif;
+      font-family: 'Patrick Hand', cursive;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -24,9 +24,10 @@
     .card {
       background: #2a0033;
       padding: 30px;
-      border-radius: 25px;
+      border-radius: 20px;
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
       max-width: 90%;
+      width: 600px;
       animation: popIn 1.5s ease;
       z-index: 10;
     }
@@ -37,27 +38,26 @@
     }
 
     h1 {
-      font-family: 'Dancing Script', cursive;
-      font-size: 2.5em;
+      font-size: 2.2em;
       color: #ff99ff;
       margin-bottom: 10px;
     }
 
     p {
-      font-size: 1.1em;
-      margin-bottom: 20px;
+      font-size: 1.2em;
+      margin-bottom: 25px;
       line-height: 1.6;
     }
 
     .btns {
       display: flex;
-      justify-content: center;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 20px;
     }
 
     button {
-      padding: 12px 24px;
+      padding: 12px 25px;
       font-size: 1em;
       border: none;
       border-radius: 30px;
@@ -102,16 +102,15 @@
       padding: 20px;
       border-radius: 15px;
       box-shadow: 0 6px 20px rgba(0,0,0,0.5);
-      max-width: 90%;
-      margin-top: 20px;
+      max-width: 100%;
       color: #f4f4f4;
       overflow-y: auto;
-      max-height: 60vh;
-      font-family: 'Dancing Script', cursive;
+      max-height: 500px;
+      margin-top: 20px;
     }
 
     #letter p {
-      font-size: 1em;
+      font-size: 1.1em;
       margin-bottom: 15px;
     }
 
@@ -132,42 +131,35 @@
       justify-content: center;
       flex-direction: column;
       color: #ffccd9;
-      font-family: 'Dancing Script', cursive;
+      font-family: 'Patrick Hand', cursive;
       text-align: center;
-      overflow: hidden;
       z-index: 100;
       display: none;
-      padding: 20px;
     }
 
-    .heart-shape, .beat-heart {
+    .heart-shape {
       position: relative;
-      width: 90px;
-      height: 80px;
+      width: 120px;
+      height: 110px;
       background-color: #ff1a1a;
       transform: rotate(-45deg);
-      box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+      animation: appearHeart 2s ease forwards;
+      box-shadow: 0 0 30px rgba(255, 0, 0, 0.9), 0 0 60px rgba(255, 0, 0, 0.6);
+      margin-bottom: 40px;
     }
 
     .heart-shape::before,
-    .heart-shape::after,
-    .beat-heart::before,
-    .beat-heart::after {
+    .heart-shape::after {
       content: "";
       position: absolute;
-      width: 90px;
-      height: 80px;
+      width: 120px;
+      height: 110px;
       background-color: #ff1a1a;
       border-radius: 50%;
     }
 
-    .heart-shape::before, .beat-heart::before { top: -45px; left: 0; }
-    .heart-shape::after, .beat-heart::after { top: 0; left: 45px; }
-
-    .heart-shape {
-      animation: appearHeart 2s ease forwards;
-      margin-bottom: 30px;
-    }
+    .heart-shape::before { top: -60px; left: 0; }
+    .heart-shape::after { top: 0; left: 60px; }
 
     @keyframes appearHeart {
       0% { opacity: 0; transform: scale(0.2) rotate(-45deg); }
@@ -175,9 +167,28 @@
     }
 
     .beat-heart {
+      position: relative;
+      width: 100px;
+      height: 90px;
+      background-color: #ff3333;
+      transform: rotate(-45deg);
       display: none;
       animation: heartbeat 1s infinite ease-in-out;
+      box-shadow: 0 0 20px #ff4d4d;
     }
+
+    .beat-heart::before,
+    .beat-heart::after {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 90px;
+      background-color: #ff3333;
+      border-radius: 50%;
+    }
+
+    .beat-heart::before { top: -50px; left: 0; }
+    .beat-heart::after { top: 0; left: 50px; }
 
     @keyframes heartbeat {
       0%, 100% { transform: scale(1) rotate(-45deg); }
@@ -185,34 +196,36 @@
     }
 
     #loveText {
-      font-size: 1.8em;
-      max-width: 95%;
-      margin-top: 40px;
+      font-size: 2em;
+      max-width: 90%;
+      margin-top: 50px;
       display: none;
       text-shadow: 0 0 8px #ff4d6d;
       color: #ffcce0;
     }
 
-    @media screen and (max-width: 480px) {
-      h1 { font-size: 2em; }
-      p, #letter p { font-size: 1em; }
-      .btns { flex-direction: column; gap: 10px; }
-      button { width: 100%; }
-      .card, #letter { padding: 15px; }
+    @media (max-width: 600px) {
+      h1 { font-size: 1.8em; }
+      p { font-size: 1em; }
+      button { font-size: 1em; padding: 10px 20px; }
     }
   </style>
 </head>
 <body>
+
   <div class="card" id="forgiveCard">
     <h1>Forgive Me, Aashu? 💔</h1>
     <p>Ik I made you feel hurt... but will you forgive your dramatic girl?</p>
+
     <div class="btns">
       <button class="yes" onclick="showLetter()">Yes 😌</button>
       <button class="no" onmouseover="escape(this)">No 😒</button>
     </div>
+
     <div id="response">
       <p>YAY!!! You're still mine ❤️<br>Here's something from my heart for you...</p>
     </div>
+
     <div id="letter">
       <p>Dear Aashu,</p>
       <p>This isn’t just a sorry card. This is me coming back to you after revisiting everything you ever said, everything we’ve ever felt.</p>
@@ -220,23 +233,27 @@
       <p>You asked me to grow not just to make promises but to show effort. That’s what I’m doing. I’ll be stronger, softer, calmer. I’ll love you in a way that doesn’t doubt, doesn’t fear, and doesn’t run away.</p>
       <p>Thank you for being patient, for loving me even when I made it hard. I don’t want perfect I want honest. I want us. You and me, with all our madness. That’s still my favourite chapter <333</p>
       <p>Forever yours,<br><strong>Aanchal</strong> 💖</p>
+
       <p id="rawCry">
-        Aashuuuuuuuuuuuuuuuuu... bohot ho gaya ab 😭😭😭😭<br>
+        Aashuuuuuuuuuuuuuuuuu... bohot ho gaya ab 😭<br>
         Yk mera din 36 ghante ka lagta hai and I really want to talk...<br>
         Par idk aapko time chahiye to mai khud confuse hoon ke karu ke na karu aapko text,<br>
         Mai sach mein sorry hoon jo hua uske liye, par ab bohot ho gaya...<br>
-        Ab mai aur nahi reh sakti hoon aapke bina 😭😭😭😭😭😭😭😭😭
+        Ab mai aur nahi reh sakti hoon aapke bina 😭😭
       </p>
-      <button id="startHeartBtn" style="margin-top: 20px; padding: 12px 25px; font-size: 1.1em; background-color: #9933ff; color: white; border: none; border-radius: 30px; cursor: pointer;">
+
+      <button id="startHeartBtn" style="margin-top: 20px; padding: 12px 25px; font-size: 1.2em; background-color: #9933ff; color: white; border: none; border-radius: 30px; cursor: pointer;">
         Click Me 👉😳
       </button>
     </div>
   </div>
+
   <div id="heartSection">
     <div class="heart-shape" id="bigHeart"></div>
     <div class="beat-heart" id="beatHeart"></div>
     <h1 id="loveText">I love you so much, my sleepy billuuu 💕<br>And I miss you like hell 😭</h1>
   </div>
+
   <script>
     function showLetter() {
       document.getElementById('response').style.display = 'block';
@@ -263,7 +280,7 @@
       beatHeart.style.display = 'none';
       loveText.style.display = 'none';
 
-      void bigHeart.offsetWidth; // trigger reflow
+      void bigHeart.offsetWidth; // reflow
 
       bigHeart.style.animation = 'appearHeart 2s ease forwards';
 
